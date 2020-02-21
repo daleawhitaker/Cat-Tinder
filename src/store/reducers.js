@@ -6,19 +6,19 @@ const time = (state = {}, action) => {
     case actionTypes.SET_TIME:
       return {
         ...state,
-        remainingTime: action.remainingTime,
-        maxTime: action.maxTime
+        remaining: action.remaining,
+        max: action.max
       };
     case actionTypes.COUNT_DOWN:
       return {
         ...state,
-        remainingTime: state.remainingTime - 1
+        remaining: state.remaining > 0 ? state.remaining - 1 : 0
       };
     default:
       return state;
   }
 };
 
-export const rootReducer = combineReducers({
+export default combineReducers({
   time
 });

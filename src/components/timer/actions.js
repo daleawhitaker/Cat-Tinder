@@ -1,10 +1,10 @@
 import actionTypes from "../../store/actionTypes";
 
-function setTime(timeRemaining, maxTime) {
+function setTime(remaining, max) {
   return {
     type: actionTypes.SET_TIME,
-    timeRemaining,
-    maxTime
+    remaining,
+    max
   };
 }
 
@@ -14,7 +14,4 @@ function countDown() {
   };
 }
 
-export default {
-  setTime,
-  countDown
-};
+export { setTime, countDown };

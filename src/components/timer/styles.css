@@ -1,5 +1,5 @@
 .timer {
-  --size: 50px;
+  --size: 75px;
 
   position: relative;
   width: var(--size);
@@ -24,4 +24,5 @@
   left: 0px;
   top: 0px;
   z-index: -1;
+  transition: width 1s linear;
 }

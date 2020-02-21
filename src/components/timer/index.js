@@ -1,9 +1,14 @@
 import React from "react";
 import "./styles.css";
 import { connect } from "react-redux";
+import { countDown } from "./actions";
 
-function Timer({ timeRemaining, maxTime }) {
-  let timeFraction = timeRemaining / maxTime;
+function Timer({ timeRemaining, timeMax, countDown }) {
+  let timePercentage = (timeRemaining / timeMax) * 100;
+
+  if (timeRemaining > 0) {
+    window.setTimeout(countDown, 1000);
+  }
 
   return (
     <div className="timer">
@@ -11,7 +16,7 @@ function Timer({ timeRemaining, maxTime }) {
       <div
         className="timer-progress"
         style={{
-          width: `${timeFraction * 100}%`
+          width: `${timePercentage}%`
         }}
       />
     </div>
@@ -19,12 +24,16 @@ function Timer({ timeRemaining, maxTime }) {
 }
 
 function mapStateToProps(state) {
-  const { timeRemaining, maxTime } = state.time;
+  const { remaining, max } = state.time;
 
   return {
-    timeRemaining,
-    maxTime
+    timeRemaining: remaining,
+    timeMax: max
   };
 }
 
-export default connect(mapStateToProps)(Timer);
+const actionCreators = {
+  countDown
+};
+
+export default connect(mapStateToProps, actionCreators)(Timer);
