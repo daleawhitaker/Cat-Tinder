@@ -4,10 +4,18 @@ import { connect } from "react-redux";
 import { countDown } from "../../store/time/actions";
 
 function Timer({ timeRemaining, timeMax, countDown }) {
-  let timePercentage = (timeRemaining / timeMax) * 100;
+  let barFillAmount;
 
   if (timeRemaining > 0) {
+    //
     window.setTimeout(countDown, 1000);
+
+    // We subtract 1 from the time remaining and max time to ensure
+    // that the bar fully empties when the timer hits 0.
+    // This is required as CSS transitions move towards the new CSS value, not away.
+    barFillAmount = ((timeRemaining - 1) / (timeMax - 1)) * 100;
+  } else {
+    barFillAmount = 0;
   }
 
   return (
@@ -16,7 +24,7 @@ function Timer({ timeRemaining, timeMax, countDown }) {
       <div
         className="timer-progress"
         style={{
-          width: `${timePercentage}%`
+          width: `${barFillAmount}%`
         }}
       />
     </div>

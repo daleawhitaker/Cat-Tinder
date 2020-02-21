@@ -1,5 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { setTime, countDown } from "./actions";
+import { start } from "../game/actions";
 
 export default createReducer(
   {},
@@ -10,6 +11,10 @@ export default createReducer(
     },
     [countDown]: (state, action) => {
       state.remaining = state.remaining - 1;
+    },
+    [start]: (state, action) => {
+      state.remaining = action.payload.time;
+      state.max = action.payload.time;
     }
   }
 );
