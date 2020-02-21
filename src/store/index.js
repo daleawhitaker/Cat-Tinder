@@ -1,10 +1,13 @@
-import rootReducer from "./reducers";
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import time from "./time";
+
+const rootReducer = combineReducers({
+  time
+});
 
 export default function doStore(preloadedState = {}) {
-  const store = configureStore({
+  return configureStore({
     reducer: rootReducer,
     preloadedState
   });
-  return store;
 }

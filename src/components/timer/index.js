@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 import { connect } from "react-redux";
-import { countDown } from "./actions";
+import { countDown } from "../../store/time/actions";
 
 function Timer({ timeRemaining, timeMax, countDown }) {
   let timePercentage = (timeRemaining / timeMax) * 100;
