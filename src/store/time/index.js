@@ -6,15 +6,15 @@ export default createReducer(
   {},
   {
     [setTime]: (state, action) => {
-      state.remaining = action.payload.remaining;
-      state.max = action.payload.max;
+      if (!isNaN(action.payload.time)) {
+        state.max = +action.payload.time;
+      }
     },
     [countDown]: (state, action) => {
       state.remaining = state.remaining - 1;
     },
     [start]: (state, action) => {
-      state.remaining = action.payload.time;
-      state.max = action.payload.time;
+      state.remaining = state.max;
     }
   }
 );

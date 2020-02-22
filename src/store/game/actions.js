@@ -6,4 +6,4 @@ const like = createAction(actionTypes.like);
 const dislike = createAction(actionTypes.dislike);
 const skip = createAction(actionTypes.skip);
 
-export { start };
+export { start, like, dislike, skip };

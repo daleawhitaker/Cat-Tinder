@@ -2,17 +2,43 @@ import React from "react";
 import "./styles.css";
 import { connect } from "react-redux";
 import { start } from "../../store/game/actions";
+import { newPicture } from "../../store/cats/actions";
+import { setTime } from "../../store/time/actions";
+import FancyButton from "../fancyButton";
 
-function Menu({ start }) {
+function Menu({ start, newPicture, setTime, time }) {
   return (
     <div className="menu">
-      <button onClick={() => start({ time: 10 })}>Start!</button>
+      <input
+        type="number"
+        defaultValue={time}
+        onChange={event => {
+          setTime(+event.target.value);
+        }}
+      />
+      <FancyButton
+        onClick={() => {
+          start();
+          newPicture();
+        }}
+      >
+        Start!
+      </FancyButton>
     </div>
   );
 }
 
 const actionCreators = {
-  start
+  start,
+  newPicture,
+  setTime
 };
 
-export default connect(null, actionCreators)(Menu);
+function bindStateToProps(state) {
+  const { max } = state.time;
+  return {
+    time: max
+  };
+}
+
+export default connect(bindStateToProps, actionCreators)(Menu);

@@ -1,10 +1,12 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import time from "./time";
 import game from "./game";
+import cats from "./cats";
 
 const rootReducer = combineReducers({
   time,
-  game
+  game,
+  cats
 });
 
 export default function doStore(preloadedState = {}) {

@@ -5,17 +5,20 @@ import Game from "../game";
 import Results from "../results";
 
 function Page({ timeRemaining, gameStarted }) {
-  return <>{timeRemaining ? <Game /> : gameStarted ? <Results /> : <Menu />}</>;
+  return (
+    <>{timeRemaining > 0 ? <Game /> : gameStarted ? <Results /> : <Menu />}</>
+  );
 }
 
 function mapStateToProps(state) {
   const {
-    time: { remaining }
+    time: { remaining },
+    game: { started }
   } = state;
 
   return {
     timeRemaining: remaining,
-    gameStarted: false
+    gameStarted: started
   };
 }
 
