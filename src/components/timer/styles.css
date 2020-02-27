@@ -1,13 +1,11 @@
 .timer {
   --size: 75px;
-
-  position: relative;
+  position: absolute;
   width: var(--size);
   height: var(--size);
+  top: 10px;
+  right: 10px;
   text-align: center;
-  background-color: #444444;
-  border-radius: calc(var(--size) / 2);
-  overflow: hidden;
   z-index: 0;
 }
 
@@ -15,14 +13,30 @@
   color: white;
   line-height: var(--size);
   z-index: 1;
+  font-size: calc(var(--size)/2);
+  font-family: 'Roboto';
+  text-shadow: 1px 1px 3px black;
 }
 
-.timer-progress {
+.timer svg {
   height: 100%;
-  background-color: green;
+  width: 100%;
   position: absolute;
   left: 0px;
   top: 0px;
   z-index: -1;
-  transition: width 1s linear;
+  transform: rotateZ(-90deg);
+}
+
+.timer-progress {
+  stroke-dasharray: 1;
+  stroke-linecap: butt;
+  stroke-width: 2;
+  stroke: green;
+  fill: none;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.timer-background {
+  fill: #444444;
 }

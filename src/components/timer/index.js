@@ -13,7 +13,7 @@ function Timer({ timeRemaining, timeMax, countDown }) {
     // We subtract 1 from the time remaining and max time to ensure
     // that the bar fully empties when the timer hits 0.
     // This is required as CSS transitions move towards the new CSS value, not away.
-    barFillAmount = ((timeRemaining - 1) / (timeMax - 1)) * 100;
+    barFillAmount = (timeRemaining - 1) / (timeMax - 1) + 1;
   } else {
     barFillAmount = 0;
   }
@@ -21,12 +21,25 @@ function Timer({ timeRemaining, timeMax, countDown }) {
   return (
     <div className="timer">
       <span className="timer-text">{timeRemaining}</span>
-      <div
-        className="timer-progress"
-        style={{
-          width: `${barFillAmount}%`
-        }}
-      />
+      <svg viewBox="0 0 4 4">
+        <circle
+          className="timer-background"
+          r="2"
+          cx="2"
+          cy="2"
+          pathLength="1"
+        />
+        <circle
+          className="timer-progress"
+          r="1"
+          cx="2"
+          cy="2"
+          pathLength="1"
+          style={{
+            "stroke-dashoffset": barFillAmount
+          }}
+        />
+      </svg>
     </div>
   );
 }
