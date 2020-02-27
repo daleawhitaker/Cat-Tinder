@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import Page from "./components/page";
 import configureStore from "./store";
 import defaultState from "./store/defaultState";
+import "./styles.css";
 
 const store = configureStore(defaultState);
 

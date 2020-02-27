@@ -1,8 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+import "./style.css";
 
 function CatPicture({ currentImage }) {
-  return <img src={currentImage} />;
+  return (
+    <div className="cat-picture">
+      <img src={currentImage} />
+    </div>
+  );
 }
 
 function mapStateToProps(state) {

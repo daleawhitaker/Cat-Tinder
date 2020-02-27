@@ -1,0 +1,11 @@
+.game {
+  width: 100vw;
+  height: 100vh;
+}
+
+.controls {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+}
