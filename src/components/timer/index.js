@@ -13,7 +13,7 @@ function Timer({ timeRemaining, timeMax, countDown }) {
     // We subtract 1 from the time remaining and max time to ensure
     // that the bar fully empties when the timer hits 0.
     // This is required as CSS transitions move towards the new CSS value, not away.
-    barFillAmount = (timeRemaining - 1) / (timeMax - 1) + 1;
+    barFillAmount = (timeRemaining - 1) / (timeMax - 1) - 1;
   } else {
     barFillAmount = 0;
   }
