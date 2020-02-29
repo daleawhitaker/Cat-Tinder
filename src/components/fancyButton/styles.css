@@ -14,13 +14,18 @@
   line-height: var(--height);
   color: var(--main-darkest);
   cursor: pointer;
+  outline: 0px;
+}
+
+.fancy-button::-moz-focus-inner {
+  border-radius: calc(var(--height) / 2);
+}
+
+.fancy-button:focus {
+  background-color: var(--main-light);
 }
 
 .fancy-button:disabled {
   background-color: var(--main-disabled);
   cursor: unset;
-}
-
-.fancy-button:focus {
-  border: 2px var(--main-dark) dashed;
 }

@@ -16,5 +16,6 @@ body {
   --main-disabled: hsl(var(--main-h), 0%, var(--main-l));
   --main-dark: hsl(var(--main-h), var(--main-s), calc(var(--main-l) - 20%));
   --main-darkest: hsl(var(--main-h), var(--main-s), 5%);
+  --main-light: hsl(var(--main-h), var(--main-s), calc(100% - ((100% - var(--main-l)) * 0.6)));
   --main-lightest: hsl(var(--main-h), var(--main-s), calc(100% - ((100% - var(--main-l)) * 0.15)));
 }

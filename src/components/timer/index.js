@@ -20,7 +20,9 @@ function Timer({ timeRemaining, timeMax, countDown }) {
 
   return (
     <div className="timer">
-      <span className="timer-text">{timeRemaining}</span>
+      <span className="timer-text" aria-label="time remaining">
+        {timeRemaining}
+      </span>
       <svg viewBox="0 0 4 4" aria-hidden="true">
         <circle
           role="presentation"
@@ -38,7 +40,7 @@ function Timer({ timeRemaining, timeMax, countDown }) {
           r="1"
           cx="2"
           cy="2"
-          pathLength="1"
+          pathLength="0.9"
           style={{
             strokeDashoffset: barFillAmount
           }}
