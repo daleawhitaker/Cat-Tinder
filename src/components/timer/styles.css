@@ -10,12 +10,11 @@
 }
 
 .timer-text {
-  color: white;
+  color: black;
   line-height: var(--size);
   z-index: 1;
   font-size: calc(var(--size)/2);
   font-family: 'Roboto';
-  text-shadow: 1px 1px 3px black;
 }
 
 .timer svg {
@@ -38,5 +37,5 @@
 }
 
 .timer-background {
-  fill: #444444;
+  fill: var(--background);
 }

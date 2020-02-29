@@ -11,4 +11,14 @@
   background-color: var(--main);
   box-shadow: 1px 1px 2px black;
   cursor: pointer;
+  color: black;
+}
+
+.fancy-button:disabled {
+  background-color: var(--main-disabled);
+  cursor: unset;
+}
+
+.fancy-button:focus {
+  border: 2px var(--main-dark);
 }

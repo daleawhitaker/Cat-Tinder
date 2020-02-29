@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import CatPicture from "../catPicture";
 import "./styles.css";
 
-function Game({ like, dislike, skip, newPicture }) {
+function Game({ pictureLoaded, like, dislike, skip, newPicture }) {
   return (
     <div className="game">
       <Timer />
@@ -15,6 +15,7 @@ function Game({ like, dislike, skip, newPicture }) {
       <div className="controls">
         <FancyButton
           label={"Like"}
+          disabled={!pictureLoaded}
           onClick={() => {
             like();
             newPicture();
@@ -24,6 +25,7 @@ function Game({ like, dislike, skip, newPicture }) {
         </FancyButton>
         <FancyButton
           label={"Skip"}
+          disabled={!pictureLoaded}
           onClick={() => {
             skip();
             newPicture();
@@ -33,6 +35,7 @@ function Game({ like, dislike, skip, newPicture }) {
         </FancyButton>
         <FancyButton
           label={"Dislike"}
+          disabled={!pictureLoaded}
           onClick={() => {
             dislike();
             newPicture();
@@ -45,6 +48,13 @@ function Game({ like, dislike, skip, newPicture }) {
   );
 }
 
+function mapStateToProps(state) {
+  const { pictureLoaded } = state.cats;
+  return {
+    pictureLoaded
+  };
+}
+
 const actionCreators = {
   like,
   dislike,
@@ -52,4 +62,4 @@ const actionCreators = {
   newPicture
 };
 
-export default connect(null, actionCreators)(Game);
+export default connect(mapStateToProps, actionCreators)(Game);

@@ -1,32 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
 import { start } from "../../store/game/actions";
-import { setTime } from "../../store/time/actions";
 import { newPicture } from "../../store/cats/actions";
 import FancyButton from "../fancyButton";
+import TimeInput from "../timeInput";
+import "./styles.css";
 
-function Results({ likes, dislikes, skips, time, start, setTime, newPicture }) {
+function Results({ likes, dislikes, skips, time, start, newPicture }) {
+  newPicture();
   return (
     <div className="results">
       <span>
         You liked {likes} cat(s), disliked {dislikes} cat(s) and skipped {skips}{" "}
         time(s)
       </span>
-      <input
-        type="number"
-        defaultValue={time}
-        onChange={event => {
-          setTime(+event.target.value);
-        }}
-      />
+      <br />
+      <span>
+        I would like to play for <TimeInput /> seconds
+      </span>
+      <br />
       <FancyButton
         label={"Like"}
+        disabled={time <= 0 || !Number.isInteger(+time)}
         onClick={() => {
           start();
-          newPicture();
         }}
       >
-        Play again?
+        Play again!
       </FancyButton>
     </div>
   );
@@ -50,7 +50,6 @@ function mapStateToProps(state) {
 
 const actionCreators = {
   start,
-  setTime,
   newPicture
 };
 

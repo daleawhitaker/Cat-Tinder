@@ -1,26 +1,24 @@
 import React from "react";
-import "./styles.css";
 import { connect } from "react-redux";
 import { start } from "../../store/game/actions";
 import { newPicture } from "../../store/cats/actions";
-import { setTime } from "../../store/time/actions";
+import TimeInput from "../timeInput";
 import FancyButton from "../fancyButton";
+import "./styles.css";
 
-function Menu({ start, newPicture, setTime, time }) {
+function Menu({ start, newPicture, time }) {
+  newPicture();
   return (
     <div className="menu">
-      <input
-        type="number"
-        defaultValue={time}
-        onChange={event => {
-          setTime(+event.target.value);
-        }}
-      />
+      <span>
+        I would like to play for <TimeInput /> seconds
+      </span>
+      <br />
       <FancyButton
         label={"Start"}
+        disabled={time <= 0 || !Number.isInteger(+time)}
         onClick={() => {
           start();
-          newPicture();
         }}
       >
         Start!
@@ -29,17 +27,16 @@ function Menu({ start, newPicture, setTime, time }) {
   );
 }
 
-const actionCreators = {
-  start,
-  newPicture,
-  setTime
-};
-
-function bindStateToProps(state) {
+function mapStateToProps(state) {
   const { max } = state.time;
   return {
     time: max
   };
 }
 
-export default connect(bindStateToProps, actionCreators)(Menu);
+const actionCreators = {
+  start,
+  newPicture
+};
+
+export default connect(mapStateToProps, actionCreators)(Menu);

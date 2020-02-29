@@ -1,14 +1,16 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { pictureLoaded } from "./actions";
-import { start } from "../game/actions";
+import { urlLoaded, pictureLoaded, pictureUnloaded } from "./actions";
 
 export default createReducer(
   {},
   {
-    [start]: (state, action) => {
-      state.currentImage = "";
+    [pictureUnloaded]: (state, action) => {
+      state.pictureLoaded = false;
     },
     [pictureLoaded]: (state, action) => {
+      state.pictureLoaded = true;
+    },
+    [urlLoaded]: (state, action) => {
       state.currentImage = action.payload;
     }
   }
