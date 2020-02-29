@@ -1,11 +1,14 @@
 .game {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .controls {
-  position: absolute;
   bottom: 0px;
   width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  flex: 0 0 auto;
 }

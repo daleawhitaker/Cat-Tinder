@@ -1,6 +1,10 @@
 body {
   margin: 0px;
   width: 100%;
-  background-color: black;
   overflow: hidden;
+}
+
+#root {
+  /* Full-app variables */
+  --main: hsl(152, 76%, 52%);
 }
