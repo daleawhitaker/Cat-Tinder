@@ -10,11 +10,11 @@
 }
 
 .timer-text {
-  color: black;
+  color: var(--main-darkest);
   line-height: var(--size);
   z-index: 1;
   font-size: calc(var(--size)/2);
-  font-family: 'Roboto';
+  font-family: 'Courgette';
 }
 
 .timer svg {
@@ -37,5 +37,5 @@
 }
 
 .timer-background {
-  fill: var(--background);
+  fill: var(--main-lightest);
 }

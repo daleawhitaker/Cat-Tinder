@@ -5,16 +5,19 @@ import "./styles.css";
 
 function TimeInput({ time, setTime }) {
   return (
-    <input
-      className="time-input"
-      type="number"
-      defaultValue={time}
-      min={0}
-      step={1}
-      onChange={event => {
-        setTime(+event.target.value);
-      }}
-    />
+    <label>
+      Length of game (seconds):&nbsp;
+      <input
+        className="time-input"
+        type="number"
+        defaultValue={time}
+        min={0}
+        step={1}
+        onChange={event => {
+          setTime(+event.target.value);
+        }}
+      />
+    </label>
   );
 }
 

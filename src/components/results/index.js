@@ -4,20 +4,20 @@ import { start } from "../../store/game/actions";
 import { newPicture } from "../../store/cats/actions";
 import FancyButton from "../fancyButton";
 import TimeInput from "../timeInput";
+import Logo from "../logo";
 import "./styles.css";
 
 function Results({ likes, dislikes, skips, time, start, newPicture }) {
   newPicture();
   return (
     <div className="results">
+      <Logo />
       <span>
-        You liked {likes} cat(s), disliked {dislikes} cat(s) and skipped {skips}{" "}
-        time(s)
+        You liked <em>{likes}</em> cat(s), disliked <em>{dislikes}</em> cat(s)
+        and skipped <em>{skips}</em> time(s)
       </span>
       <br />
-      <span>
-        I would like to play for <TimeInput /> seconds
-      </span>
+      <TimeInput />
       <br />
       <FancyButton
         label={"Like"}

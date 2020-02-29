@@ -1,0 +1,11 @@
+.logo {
+  fill: var(--main);
+  height: auto;
+  width: 200px;
+}
+
+.title {
+  color: var(--main-dark);
+  margin: 0px;
+  font-family: 'Courgette';
+}

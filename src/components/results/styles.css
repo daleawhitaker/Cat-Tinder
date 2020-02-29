@@ -1,12 +1,29 @@
 .results {
+
   --margin: 20px;
   --padding: 10px;
-  height: calc((100vh - (2 * var(--margin))) - (2 * var(--padding)));
+  height: fit-content;
   max-width: 600px;
   flex: 1 1 auto;
   margin: var(--margin);
   padding: var(--padding);
+  padding-top: 30px;
+  padding-bottom: 30px;
   border-radius: 10px;
   text-align: center;
-  background-color: var(--background);
+  background-color: var(--main-lightest);
+  color: var(--main-darkest)
+}
+
+.results span,
+.results label {
+  font-family: 'Roboto';
+  line-height: 28px;
+  font-size: 18px;
+  color: var(--main-darkest);
+}
+
+.results span em {
+  font-style: normal;
+  color: var(--contrast);
 }

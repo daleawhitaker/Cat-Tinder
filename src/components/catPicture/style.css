@@ -3,7 +3,7 @@
   /*Allow flex to fill the remaining space vertically*/
   height: 0px;
   flex: 1 1 auto;
-  background-color: black;
+  background-color: var(--main-darkest);
 }
 
 .cat-picture img {

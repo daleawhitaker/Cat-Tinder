@@ -4,15 +4,16 @@ import { start } from "../../store/game/actions";
 import { newPicture } from "../../store/cats/actions";
 import TimeInput from "../timeInput";
 import FancyButton from "../fancyButton";
+import Logo from "../logo";
 import "./styles.css";
 
 function Menu({ start, newPicture, time }) {
   newPicture();
   return (
     <div className="menu">
-      <span>
-        I would like to play for <TimeInput /> seconds
-      </span>
+      <Logo />
+      <br />
+      <TimeInput />
       <br />
       <FancyButton
         label={"Start"}

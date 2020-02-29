@@ -26,7 +26,7 @@ function Timer({ timeRemaining, timeMax, countDown }) {
           role="presentation"
           alt=""
           className="timer-background"
-          r="2"
+          r="1.95"
           cx="2"
           cy="2"
           pathLength="1"

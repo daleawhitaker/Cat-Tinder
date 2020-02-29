@@ -1,7 +1,6 @@
 body {
   margin: 0px;
   width: 100%;
-  overflow: hidden;
 }
 
 #root {
@@ -10,10 +9,12 @@ body {
 
   /* Full-app variables */
   --main-h: 152;
-  --main-s: 76%;
-  --main-l: 52%;
+  --main-s: 75%;
+  --main-l: 50%;
   --main: hsl(var(--main-h), var(--main-s), var(--main-l));
+  --contrast: hsl(calc(var(--main-h) + 180), var(--main-s), var(--main-l));
   --main-disabled: hsl(var(--main-h), 0%, var(--main-l));
   --main-dark: hsl(var(--main-h), var(--main-s), calc(var(--main-l) - 20%));
-  --background: hsl(var(--main-h), var(--main-s), calc(100% - ((100% - var(--main-l)) * 0.2)));
+  --main-darkest: hsl(var(--main-h), var(--main-s), 5%);
+  --main-lightest: hsl(var(--main-h), var(--main-s), calc(100% - ((100% - var(--main-l)) * 0.15)));
 }
