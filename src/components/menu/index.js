@@ -17,6 +17,7 @@ function Menu({ start, newPicture, setTime, time }) {
         }}
       />
       <FancyButton
+        label={"Start"}
         onClick={() => {
           start();
           newPicture();

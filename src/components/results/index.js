@@ -20,6 +20,7 @@ function Results({ likes, dislikes, skips, time, start, setTime, newPicture }) {
         }}
       />
       <FancyButton
+        label={"Like"}
         onClick={() => {
           start();
           newPicture();

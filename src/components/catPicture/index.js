@@ -5,7 +5,7 @@ import "./style.css";
 function CatPicture({ currentImage }) {
   return (
     <div className="cat-picture">
-      <img src={currentImage} />
+      <img alt="A cat" src={currentImage} />
     </div>
   );
 }
