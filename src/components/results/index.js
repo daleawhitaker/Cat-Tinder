@@ -7,14 +7,22 @@ import TimeInput from "../timeInput";
 import Logo from "../logo";
 import "./styles.css";
 
-function Results({ likes, dislikes, skips, time, start, newPicture }) {
+function Results({
+  likes,
+  dislikes,
+  skips,
+  pictures,
+  time,
+  start,
+  newPicture
+}) {
   newPicture();
   return (
     <div className="results">
       <Logo />
       <span>
-        You liked <em>{likes}</em> cat(s), disliked <em>{dislikes}</em> cat(s)
-        and skipped <em>{skips}</em> time(s)
+        Out of <em>{pictures}</em> cat(s), You liked <em>{likes}</em> cat(s),
+        disliked <em>{dislikes}</em> cat(s) and skipped <em>{skips}</em> time(s)
       </span>
       <br />
       <TimeInput />
@@ -35,7 +43,7 @@ function Results({ likes, dislikes, skips, time, start, newPicture }) {
 function mapStateToProps(state) {
   const {
     game: {
-      results: { likes, dislikes, skips }
+      results: { likes, dislikes, skips, pictures }
     },
     time: { max }
   } = state;
@@ -44,6 +52,7 @@ function mapStateToProps(state) {
     likes,
     dislikes,
     skips,
+    pictures,
     time: max
   };
 }

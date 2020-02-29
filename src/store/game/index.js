@@ -9,17 +9,21 @@ export default createReducer(
       state.results = {
         likes: 0,
         dislikes: 0,
-        skips: 0
+        skips: 0,
+        pictures: 0
       };
     },
     [like]: (state, action) => {
       state.results.likes += 1;
+      state.results.pictures += 1;
     },
     [dislike]: (state, action) => {
       state.results.dislikes += 1;
+      state.results.pictures += 1;
     },
     [skip]: (state, action) => {
       state.results.skips += 1;
+      state.results.pictures += 1;
     }
   }
 );
